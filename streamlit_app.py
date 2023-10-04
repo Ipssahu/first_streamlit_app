@@ -77,7 +77,7 @@ if streamlit.button('Add a fruit to the list'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   count_fruit = check_row_snowflake(add_my_fruit)
   streamlit.dataframe(count_fruit)
-  if count_fruit:
+  if (count_fruit == 1):
     streamlit.error("This fruit already exists.")
   else: 
     back_from_function = insert_row_snowflake(add_my_fruit)
