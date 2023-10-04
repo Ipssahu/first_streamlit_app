@@ -63,7 +63,8 @@ if streamlit.button('Get fruit list'):
 #Check fruit exists fuction
 def check_row_snowflake(new_fruit):
   with my_cnx.cursor() as my_cur:
-    my_val = my_cur.execute("select count(*) from fruit_load_list where fruit_name = ' "+ new_fruit +" '")
+    my_cur.execute("select count(*) from fruit_load_list where fruit_name = ' "+ new_fruit +" '")
+    my_val = my_cur.fetchone()
     streamlit.text(my_val)
     return my_cur.fetchone()
 
