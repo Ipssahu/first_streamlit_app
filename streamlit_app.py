@@ -80,8 +80,8 @@ if streamlit.button('Add a fruit to the list'):
   #if 1 in count_fruit.values:
    # streamlit.error("This fruit already exists.")
   #else: 
-    back_from_function = insert_row_snowflake(add_my_fruit)
-    streamlit.text(back_from_function)
+  back_from_function = insert_row_snowflake(add_my_fruit)
+  streamlit.text(back_from_function)
   my_cnx.close()
   
   
