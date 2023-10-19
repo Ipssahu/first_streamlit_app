@@ -61,10 +61,10 @@ if streamlit.button('Get fruit list'):
   streamlit.dataframe(my_data_rows)
 
 #Check fruit exists fuction
-def check_row_snowflake(new_fruit):
-  with my_cnx.cursor() as my_cur:
-    my_cur.execute("select count(*) from fruit_load_list where fruit_name =  '"+ new_fruit +"'")
-    return my_cur.fetchall()
+#def check_row_snowflake(new_fruit):
+ # with my_cnx.cursor() as my_cur:
+  #  my_cur.execute("select count(*) from fruit_load_list where fruit_name =  '"+ new_fruit +"'")
+   # return my_cur.fetchall()
 
 #Insert a fruit function
 def insert_row_snowflake(new_fruit):
@@ -75,11 +75,11 @@ def insert_row_snowflake(new_fruit):
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
 if streamlit.button('Add a fruit to the list'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-  count_fruit = check_row_snowflake(add_my_fruit)
-  streamlit.dataframe(count_fruit)
-  if 1 in count_fruit.values:
-    streamlit.error("This fruit already exists.")
-  else: 
+  #count_fruit = check_row_snowflake(add_my_fruit)
+  #streamlit.dataframe(count_fruit)
+  #if 1 in count_fruit.values:
+   # streamlit.error("This fruit already exists.")
+  #else: 
     back_from_function = insert_row_snowflake(add_my_fruit)
     streamlit.text(back_from_function)
   my_cnx.close()
